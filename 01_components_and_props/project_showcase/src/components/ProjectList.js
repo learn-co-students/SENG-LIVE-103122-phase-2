@@ -15,7 +15,7 @@ const ProjectList = ({ projects }) => {
     // Without Destructured Props
     // console.log(props.projects);
     
-    console.log(projects);
+    // console.log(projects);
     
     // Callback Function
     // const myFunction = () => {
@@ -29,7 +29,7 @@ const ProjectList = ({ projects }) => {
 
     const projectListItems = projects.map(project => {
         // console.log(project);
-        return <ProjectListItem />
+        return <ProjectListItem key={project.id} project={project}/>
     });
 
     return (
