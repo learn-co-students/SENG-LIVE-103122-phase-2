@@ -2,6 +2,7 @@ const ProjectListItem = ({ project }) => {
     
     const { about, name, phase, link, image } = project;
 
+    // Destructuring Above is Same As...
     // const name = project.name;
     // const about = project.about;
     // ...
@@ -12,7 +13,8 @@ const ProjectListItem = ({ project }) => {
     return (
         <li>
             <figure>
-                <img src={image} alt={`Project Title: ${name}`} />
+                {/* Images Commented Out for Clearer DOM Rendering */}
+                {/* <img src={image} alt={`Project Title: ${name}`} /> */}
             </figure>
             <article>
                 <h4>{name}</h4>

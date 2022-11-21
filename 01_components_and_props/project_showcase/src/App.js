@@ -15,8 +15,7 @@ import projects from './projects';
 const App = () => {
   return (
     <>
-      <h1 className="App">Project Showcase</h1>
-      {/* <Title /> */}
+      <h1>Project Showcase</h1>
       <Header />
       <ProjectForm />
       <ProjectList projects={projects}/>
