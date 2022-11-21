@@ -15,3 +15,9 @@
 //   - Dynamically render each project name inside the `h4` tag
 
 //   - Dynamically render each project's about data inside the `p` tag
+
+const ProjectListItem = () => {
+    return <li>ProjectListItem</li>
+}
+
+export default ProjectListItem;
