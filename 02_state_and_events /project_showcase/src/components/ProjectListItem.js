@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProjectListItem = ({ id, about, image, link, name, phase }) => {
+const ProjectListItem = ({ about, image, link, name, phase }) => {
   
   // Set up State / Setter Function
   const [ clapCount, setClapCount ] = useState(0);

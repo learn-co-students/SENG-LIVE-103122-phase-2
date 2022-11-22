@@ -53,7 +53,7 @@ const ProjectList = ({ projects }) => {
         <button>Phase 2</button>
         <button>Phase 1</button>
       </div>
-      <input onChange={handleSearchQuery}type="text" placeholder="Search..."/>
+      <input onChange={handleSearchQuery}type="text" placeholder="Search..." />
 
       <ul className="cards">{projectListItems}</ul>
     </section>
