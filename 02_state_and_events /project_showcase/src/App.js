@@ -10,6 +10,7 @@ const App = () => {
       <Header />
       <ProjectForm />
       <ProjectList projects={projects} />
+      {/* <SomeOtherComponent projects={projects} /> */}
     </div>
   );
 };

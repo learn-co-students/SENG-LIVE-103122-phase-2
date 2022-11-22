@@ -1,13 +1,34 @@
-import React from "react";
+// import React from "react";
+
+// Import useState Hook
+import { useState } from "react";
 
 const Header = () => {
+  
+  // Array Destructing Assignment
+  // const [a, b] = [10, 20];
+
+  // a = 10;
+  // b = 20;
+
+  // const [ stateVariable, setterFunction ] = useState(initialValue)
+  const [ isDarkMode, setDarkMode ] = useState(true);
+  
+  // Helper Function
+  const handleClick = () => {
+    
+    // When we make a State change, this causes our Components
+    // to re-render.
+    setDarkMode(!isDarkMode)
+  }
+
   return (
     <header>
       <h1>
         <span className="logo">{"//"}</span>
         Project Showcase
       </h1>
-      <button>Dark Mode</button>
+      <button onClick={handleClick}>{isDarkMode ? "Light Mode" : "Dark Mode"}</button>
     </header>
   );
 }
