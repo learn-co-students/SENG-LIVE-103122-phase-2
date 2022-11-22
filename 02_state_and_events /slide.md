@@ -7,6 +7,10 @@ presentation:
 
 <!-- slide -->
 
+<h1> State & Events 🖱️ </h1>
+
+<!-- slide -->
+
 <h2><strong> ✅ Objectives </strong></h2>
 
 - Add event handlers to elements in React

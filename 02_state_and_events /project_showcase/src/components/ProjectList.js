@@ -6,7 +6,6 @@ const ProjectList = ({ projects }) => {
     <ProjectListItem key={project.id} {...project} />
   ));
 
-
   return (
     <section>
       <h2>Projects</h2>
