@@ -7,11 +7,9 @@ presentation:
 
 <!-- slide -->
 
-<h2><strong> React Information Flow </strong></h2>
+<h2><strong> React Information Flow 🚰 </strong></h2>
 
 <img src="https://labs.tadigital.com/wp-content/uploads/2020/03/logo.png">
-
-https://labs.tadigital.com/index.php/2020/03/31/unidirectional-data-flow-in-react/
 
 <!-- slide -->
 
@@ -21,7 +19,7 @@ https://labs.tadigital.com/index.php/2020/03/31/unidirectional-data-flow-in-reac
 
 - Decide which components should have state
 
-- Pass data up with callbacks, and down with props
+- Pass data up with callbacks and down with props
 
 <!-- slide style="text-align: left;" -->
 
@@ -59,7 +57,7 @@ From Step 4 of Thinking in React: To decide where state should live, for each pi
 
 <center><img  src="https://res.cloudinary.com/dnocv6uwb/image/upload/v1643912910/component-hierarchy-with-data-flow_cq3qkl.png" alt="Component Hierarchy" height="700" width="1500"></center>
 
-💡 Question: Where else do we need access to projects?
+💡 Question: Where else might we need access to projects?
 
 <!-- slide style="text-align: left;" -->
 
@@ -67,7 +65,7 @@ From Step 4 of Thinking in React: To decide where state should live, for each pi
 
 <br>
 
-- Currently, we have our isDarkMode state within the Header component.
+- Currently, we have our `isDarkMode` state within the Header component.
 
 - What's the problem with that? If we want to update the style of the entire application as it changes, we will only cause a re-render to `Header` component and its children
 
