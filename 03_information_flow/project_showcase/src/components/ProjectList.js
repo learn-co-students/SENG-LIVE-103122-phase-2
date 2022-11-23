@@ -1,6 +1,6 @@
 import ProjectListItem from "./ProjectListItem";
 
-const ProjectList = ({ searchResults, handleOnChange }) => {
+const ProjectList = ({ clapCount, handleClap, searchResults, handleOnChange }) => {
   
   // State for Managing searchQuery
   // const [searchQuery, setSearchQuery] = useState("");

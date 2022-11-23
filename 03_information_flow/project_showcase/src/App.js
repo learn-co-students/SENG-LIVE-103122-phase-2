@@ -5,7 +5,7 @@ import ProjectForm from "./components/ProjectForm";
 import ProjectList from "./components/ProjectList";
 
 const App = () => {
-  
+
   // Lifted searchQuery State from ProjectList to App
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -15,6 +15,10 @@ const App = () => {
   // Storing Our Data in State Enables Us
   // to Work with that Data In a More Flexible Way
   const [projects, setProjects] = useState([]);
+
+    // Once We Enable a Controlled ProjectForm
+
+      // [...projects, newProject]
 
   // Set Up a Callback Function Responsible for Updating 
   // Our isDarkMode State
@@ -57,6 +61,9 @@ const App = () => {
       <Header 
         isDarkMode={isDarkMode} 
         onToggleDarkMode={onToggleDarkMode} 
+        
+        // props object would end up being...
+        // { isDarkMode: isDarkMode, onToggleDarkMode: onToggleDarkMode }
       />
       <ProjectForm />
       <button onClick={fetchProjects}>Load Projects</button>

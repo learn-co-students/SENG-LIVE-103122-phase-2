@@ -1,6 +1,22 @@
 import { useState } from "react";
 
-const ProjectListItem = ({ about, image, link, name, phase }) => {
+const ProjectListItem = ({ name, image, link, about, phase }) => {
+
+  // Making Copy of props Object
+  // let myCopy = {...props}
+
+  // console.log(myCopy)
+
+  // If We Wanted const Protections For Attributes
+  // const { id, name, about, phase, link, image } = project;
+
+  // console.log(props);
+
+  // let name = props.name;
+
+  // name = "something else"
+  
+  // console.log(name);
 
   const [clapCount, setClapCount] = useState(0);
 

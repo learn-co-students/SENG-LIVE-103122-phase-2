@@ -1,7 +1,15 @@
 const Header = ({ isDarkMode, onToggleDarkMode }) => {
+  
+  // Destructure Props Object to Offer const Protections
+  // const { isDarkMode, onToggleDarkMode } = props;
+  
   // const [isDarkMode, setIsDarkMode] = useState(true);
 
   // const handleClick = () => setIsDarkMode(!isDarkMode);
+
+  // isDarkMode = "something else";
+
+  // console.log(isDarkMode);
 
   const buttonTextContent = isDarkMode ? "Light Mode" : "Dark Mode";
 
