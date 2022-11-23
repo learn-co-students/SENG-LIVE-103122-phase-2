@@ -6,16 +6,19 @@ import ProjectList from "./components/ProjectList";
 
 const App = () => {
   
+  // Lifted searchQuery State from ProjectList to App
+  const [searchQuery, setSearchQuery] = useState("");
+
   // Lifted isDarkMode State From Header to App
   const [isDarkMode, setIsDarkMode] = useState(true);
-
-  // Set Up a Callback Function Responsible for Updating 
-  // Our State
-  const onToggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   // Storing Our Data in State Enables Us
   // to Work with that Data In a More Flexible Way
   const [projects, setProjects] = useState([]);
+
+  // Set Up a Callback Function Responsible for Updating 
+  // Our isDarkMode State
+  const onToggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
   // # Deliverable 1: Configure a <button> in our App 
   // that will use json-server to fetch projects 
@@ -34,6 +37,13 @@ const App = () => {
       });
   }
 
+  // Set Up Callback Function to Update searchQuery State
+  const handleOnChange = (e) => setSearchQuery(e.target.value);
+
+  const searchResults = projects.filter((project) => {
+    return project.name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
+
   // - Add an onClick event listener to the "Load Projects" 
   // button
 
@@ -50,7 +60,10 @@ const App = () => {
       />
       <ProjectForm />
       <button onClick={fetchProjects}>Load Projects</button>
-      <ProjectList projects={projects} />
+      <ProjectList 
+        handleOnChange={handleOnChange}
+        searchResults={searchResults}
+      />
     </div>
   );
 };
