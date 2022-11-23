@@ -32,12 +32,14 @@ body {
   background-color: var(--background);
 }
 
+/* Dark Mode */
 .App {
   color: var(--color);
   background-color: var(--background);
   min-height: 100vh;
 }
 
+/* Light Mode */
 .App.light {
   --color: var(--black);
   --background: var(--white);
