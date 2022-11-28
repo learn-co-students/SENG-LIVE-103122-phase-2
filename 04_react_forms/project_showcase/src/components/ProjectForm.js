@@ -54,7 +54,7 @@ const ProjectForm = ({ addNewProject }) => {
 
         // Provide a `value` attribute to each form field 
         // that will return the associated piece of state
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formData, [name]: value});
       }
 
     // Add an `onSubmit` event handler to the form
@@ -79,7 +79,8 @@ const ProjectForm = ({ addNewProject }) => {
   return (
     <section>
 
-      {/* {console.log(name)} */}
+      {/* Preview of Possible Feature */}
+      {/* <h1>{formData.name}</h1> */}
 
       <form className="form" autoComplete="off" onSubmit={handleFormSubmit}>
         <h3>Add New Project</h3>
