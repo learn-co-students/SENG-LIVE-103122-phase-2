@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const ProjectForm = () => {
   
   // Deliverable 1: Make the `ProjectForm` component a 
@@ -6,28 +8,89 @@ const ProjectForm = () => {
     // Initialize state for all the form fields found 
     // in the component
 
+      // Not Best Practice (Individual States)
+      // const [ name, setName ] = useState("");
+      // const [ about, setAbout ] = useState(""); 
+
+      // Best Practice (One State - Object)
+      const [ formData, setFormData ] = useState({
+        name: "",
+        about: "",
+        phase: "",
+        link: "",
+        image: ""
+      });
+
+
     // Add an `onChange` event to each field that will 
     // update state associated to the field that is 
     // interacted with
+
+      // Not Best Practice (Individual States)
+      // const handleNameInput = (e) => {
+      //   // console.log(e.target.value);
+
+      //   setName(e.target.value);
+      // }
+
+      // const handleAboutInput = (e) => {
+      //   // console.log(e.target.value);
+
+      //   setAbout(e.target.value);
+      // }
+
+      // Best Practice (One State - Object)
+      const handleFormData = (e) => {
+        // How can I pull / set consts for "name" + "value" from e.target?
+        const { name, value } = e.target;
+
+        // console.log(name);
+        // console.log(value);
+
+        // When we invoke setFormData, we want to provide a newObject
+        // as the argument.
+        setFormData({ ...formData, [name]: value });
+      }
+
 
     // Provide a `value` attribute to each form field 
     // that will return the associated piece of state
 
     // Add an `onSubmit` event handler to the form
-  
+
+
   return (
     <section>
+
+      {/* {console.log(name)} */}
+
       <form className="form" autoComplete="off">
         <h3>Add New Project</h3>
 
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" />
+        <input 
+          type="text" 
+          id="name" 
+          name="name"
+          value={formData.name}
+          onChange={handleFormData}
+        />
 
         <label htmlFor="about">About</label>
-        <textarea id="about" name="about" />
+        <textarea 
+          id="about" 
+          name="about"
+          value={formData.about}
+          onChange={handleFormData}
+        />
 
         <label htmlFor="phase">Phase</label>
-        <select name="phase" id="phase">
+        <select 
+          name="phase" 
+          id="phase"
+          value={formData.phase}
+          onChange={handleFormData}
+        >
           <option>Select One</option>
           <option value="1">Phase 1</option>
           <option value="2">Phase 2</option>
@@ -37,10 +100,22 @@ const ProjectForm = () => {
         </select>
 
         <label htmlFor="link">Project Homepage</label>
-        <input type="text" id="link" name="link" />
+        <input 
+          type="text" 
+          id="link" 
+          name="link" 
+          value={formData.link}
+          onChange={handleFormData}
+        />
 
         <label htmlFor="image">Screenshot</label>
-        <input type="text" id="image" name="image" />
+        <input 
+          type="text" 
+          id="image" 
+          name="image" 
+          value={formData.image}
+          onChange={handleFormData}
+        />
 
         <button type="submit">Add Project</button>
       </form>
