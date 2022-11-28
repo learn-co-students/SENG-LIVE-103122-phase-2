@@ -5,6 +5,9 @@ import ProjectList from "./components/ProjectList";
 
 const App = () => {
 
+  const [projects, setProjects] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
   // Deliverable 2: Handle submitting the form and 
   // update state in parent using inverse data flow
 
@@ -13,14 +16,18 @@ const App = () => {
     // Update the `projects` state located in the 
     // parent component, `App` using inverse data flow
 
-      // Use the spread operator to return a new array 
-      // with the new project included
 
-      // Set the `projects` state to the new array 
-      // value
+  const addNewProject = newProject => {
+    // Use the spread operator to return a new array 
+    // with the new project included
 
-  const [projects, setProjects] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+    const newProjectCollection = [...projects, newProject];
+
+    // Set the `projects` state to the new array 
+    // value
+
+    setProjects(newProjectCollection);
+  }
 
   const handleClick = () => {
     fetch("http://localhost:4000/projects")
@@ -33,7 +40,7 @@ const App = () => {
   return (
     <div className={isDarkMode ? "App" : "App light"}>
       <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
-      <ProjectForm />
+      <ProjectForm addNewProject={addNewProject}/>
       <button onClick={handleClick}>Load Projects</button>
       <ProjectList projects={projects} />
     </div>

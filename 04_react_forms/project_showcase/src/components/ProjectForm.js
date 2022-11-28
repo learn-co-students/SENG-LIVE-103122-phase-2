@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ProjectForm = () => {
+const ProjectForm = ({ addNewProject }) => {
   
   // Deliverable 1: Make the `ProjectForm` component a 
   // controlled component
@@ -12,14 +12,16 @@ const ProjectForm = () => {
       // const [ name, setName ] = useState("");
       // const [ about, setAbout ] = useState(""); 
 
-      // Best Practice (One State - Object)
-      const [ formData, setFormData ] = useState({
+      const initialFormValues = {
         name: "",
         about: "",
         phase: "",
         link: "",
         image: ""
-      });
+      }
+    
+      // Best Practice (One State - Object)
+      const [ formData, setFormData ] = useState(initialFormValues);
 
 
     // Add an `onChange` event to each field that will 
@@ -49,14 +51,29 @@ const ProjectForm = () => {
 
         // When we invoke setFormData, we want to provide a newObject
         // as the argument.
+
+        // Provide a `value` attribute to each form field 
+        // that will return the associated piece of state
         setFormData({ ...formData, [name]: value });
       }
 
-
-    // Provide a `value` attribute to each form field 
-    // that will return the associated piece of state
-
     // Add an `onSubmit` event handler to the form
+    const handleFormSubmit = (e) => {
+      
+      // e => submit Event
+      e.preventDefault();
+
+      // Pull All Values from formData State (Object)
+      const newProject = formData;
+
+      // Merge newProject into projects State (Array)
+
+      addNewProject(newProject);
+
+      // Clear Out Remaining Input Values
+      setFormData(initialFormValues);
+    }
+
 
 
   return (
@@ -64,7 +81,7 @@ const ProjectForm = () => {
 
       {/* {console.log(name)} */}
 
-      <form className="form" autoComplete="off">
+      <form className="form" autoComplete="off" onSubmit={handleFormSubmit}>
         <h3>Add New Project</h3>
 
         <label htmlFor="name">Name</label>
