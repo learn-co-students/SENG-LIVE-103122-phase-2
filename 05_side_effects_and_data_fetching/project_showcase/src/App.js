@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import ProjectForm from "./components/ProjectForm";
 import ProjectList from "./components/ProjectList";
+import Timer from "./components/Timer";
 
 const App = () => {
+
+  const [projects, setProjects] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+  const [isTimerShowing, setIsTimerShowing] = useState(false);
 
 // Deliverable 2: Implement useEffect in App component 
 // to load projects
@@ -42,9 +47,6 @@ const App = () => {
 
   // console.log("COMPONENT RENDERED!");
 
-  const [projects, setProjects] = useState([]);
-  const [isDarkMode, setIsDarkMode] = useState(true);
-
   const addNewProject = newProject => {
     const newProjectCollection = [...projects, newProject];
     setProjects(newProjectCollection);
@@ -58,8 +60,12 @@ const App = () => {
 
   const onToggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
+  const handleTimer = () => setIsTimerShowing(!isTimerShowing);
+
   return (
     <div className={isDarkMode ? "App" : "App light"}>
+      <button onClick={handleTimer}>Show Timer</button>
+      { isTimerShowing ? <Timer /> : null }
       <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
       <ProjectForm addNewProject={addNewProject}/>
       {/* <button onClick={handleClick}>Load Projects</button> */}
