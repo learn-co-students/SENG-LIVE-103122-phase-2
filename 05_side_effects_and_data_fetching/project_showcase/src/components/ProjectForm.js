@@ -19,7 +19,8 @@ const ProjectForm = ({ addNewProject }) => {
 
   const handleFormSubmit = (e) => {      
     e.preventDefault();
-    const newProject = formData;
+    
+    // const newProject = formData;
 
     // Deliverable 1: Persist the new project upon the 
     // `ProjectForm` submission
@@ -27,8 +28,31 @@ const ProjectForm = ({ addNewProject }) => {
       // Send the new project data to the server using a 
       // `POST` fetch request
 
-    addNewProject(newProject);
-    setFormData(initialFormValues);
+    // Optimistic Rendering
+    // addNewProject(formData);
+      
+    const requestObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    }
+
+    fetch("http://localhost:4000/projects", requestObj)
+      .then((res) => res.json())
+      .then((newProject) => { 
+        
+        console.log(newProject);
+
+        // Pessimistic Rendering
+        addNewProject(newProject);
+
+        // Optimistic Rendering
+          // Function to Clean Up Optimistic Rendering from Before
+
+        setFormData(initialFormValues);
+    });
   }
 
   return (

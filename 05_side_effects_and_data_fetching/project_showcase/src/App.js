@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import ProjectForm from "./components/ProjectForm";
 import ProjectList from "./components/ProjectList";
@@ -13,6 +13,20 @@ const App = () => {
   // Invoke `useEffect` and make a `GET` request using 
   // the `fetch` method
 
+    // useEffect(CB Function (Behavior), Dependency Array (Optional))
+    
+    useEffect(() => {
+      // console.log("SIDE EFFECT FIRED!");
+      
+      fetch("http://localhost:4000/projects")
+      .then((res) => res.json())
+      .then((projects) => setProjects(projects));
+    }, []);
+
+    // Omit DA => No Constraints Around Side Effect Behavior(s)
+    // [] => Only Fire Off Side Effect ONCE
+    // [some, state, variables] => Fire Off Side Effect When ANY Change
+
   // Update `projects` state upon successful response 
   // from the server
 
@@ -26,6 +40,8 @@ const App = () => {
   // Open up the devtools to observe when each phase of 
   // the component will occur 
 
+  // console.log("COMPONENT RENDERED!");
+
   const [projects, setProjects] = useState([]);
   const [isDarkMode, setIsDarkMode] = useState(true);
 
@@ -34,11 +50,11 @@ const App = () => {
     setProjects(newProjectCollection);
   }
 
-  const handleClick = () => {
-    fetch("http://localhost:4000/projects")
-      .then((res) => res.json())
-      .then((projects) => setProjects(projects));
-  };
+  // const handleClick = () => {
+  //   fetch("http://localhost:4000/projects")
+  //     .then((res) => res.json())
+  //     .then((projects) => setProjects(projects));
+  // };
 
   const onToggleDarkMode = () => setIsDarkMode(!isDarkMode);
 
@@ -46,7 +62,7 @@ const App = () => {
     <div className={isDarkMode ? "App" : "App light"}>
       <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
       <ProjectForm addNewProject={addNewProject}/>
-      <button onClick={handleClick}>Load Projects</button>
+      {/* <button onClick={handleClick}>Load Projects</button> */}
       <ProjectList projects={projects} />
     </div>
   );
