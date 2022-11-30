@@ -10,18 +10,45 @@ const App = () => {
   const [projects, setProjects] = useState([]);
   const [projectId, setProjectId] = useState(null);
 
+  // Methods to Update projects State 
+
   useEffect(() => {
     fetch("http://localhost:4000/projects")
       .then((resp) => resp.json())
       .then((projects) => setProjects(projects));
-  });
+  }, []);
+  
+  const onAddProject = (newProj) => {
+    setProjects((projects) => [...projects, newProj]);
+  };
+
+  const handleUpdate = (updatedProj) => {
+    // Find updateProj in projects
+
+      // .map Over projects / Capturing the Return Value (New Array)
+
+    // console.log(updatedProj);
+
+    const updatedProjects = projects.map(originalProject => {
+      if (originalProject.id === updatedProj.id) {
+        
+        console.log("MATCH FOUND!");
+        
+        return updatedProj;
+      } else {
+        return originalProject;
+      }
+    });
+
+    // Update projects State to Include Updated Project in Place of 
+    // Original Project 
+    setProjects(updatedProjects);
+  }
+
+  // -----------------------
 
   const onToggleDarkMode = () => {
     setIsDarkMode((isDarkMode) => !isDarkMode);
-  };
-
-  const onAddProject = (newProj) => {
-    setProjects((projects) => [...projects, newProj]);
   };
 
   const completeEditing = () => {
@@ -38,6 +65,7 @@ const App = () => {
         <ProjectEditForm
           projectId={projectId}
           completeEditing={completeEditing}
+          handleUpdate={handleUpdate}
         />
       );
     } else {

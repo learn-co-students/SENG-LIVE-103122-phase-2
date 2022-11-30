@@ -8,7 +8,7 @@ const ProjectForm = ({ onAddProject }) => {
     link: "",
     image: "",
   };
-  
+
   const [formData, setFormData] = useState(initialState);
 
   const handleChange = (e) => {
@@ -22,15 +22,19 @@ const ProjectForm = ({ onAddProject }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        "Accept": "application/json"
       },
       body: JSON.stringify({ ...formData, claps: 0 }),
     };
 
+    // Update projects Data
     fetch("http://localhost:4000/projects", configObj)
       .then((resp) => resp.json())
       .then((project) => {
+        
+        // Update projects State - Pessimistically
         onAddProject(project);
+        
         setFormData({
           name: "",
           about: "",
