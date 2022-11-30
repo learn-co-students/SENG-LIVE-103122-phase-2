@@ -54,7 +54,6 @@ const ProjectEditForm = ({ projectId, completeEditing, handleUpdate }) => {
     
     // Still Want to Prevent Page Refresh (Default Behavior)
     e.preventDefault();
-    
 
     const configObj = {
       method: "PATCH",
@@ -74,20 +73,11 @@ const ProjectEditForm = ({ projectId, completeEditing, handleUpdate }) => {
 
         // Update projects State - Pessimistically
         handleUpdate(updatedProject);
-        
-        setFormData({
-          name: "",
-          about: "",
-          phase: "",
-          link: "",
-          image: "",
-        });
-      });
-    
-    // Add code here
-    completeEditing();
 
-    // setFormData(initialState);
+        // Resets projectId to null / Causes ProjectForm to Render in Place
+        // of ProjectEditForm
+        completeEditing();
+      });
   }
 
   return (

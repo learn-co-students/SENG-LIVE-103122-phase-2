@@ -45,6 +45,16 @@ const App = () => {
     setProjects(updatedProjects);
   }
 
+  const handleDelete = (deletedProj) => {
+
+    //  The goal is to return a new array with the deleted project excluded
+    const updatedProjects = projects.filter(originalProject => {
+        return deletedProj.id !== originalProject.id;
+    });
+
+    setProjects(updatedProjects);
+  }
+
   // -----------------------
 
   const onToggleDarkMode = () => {
@@ -80,6 +90,7 @@ const App = () => {
       <ProjectList
         projects={projects}
         enterProjectEditModeFor={enterProjectEditModeFor}
+        handleDelete={handleDelete}
       />
     </div>
   );
