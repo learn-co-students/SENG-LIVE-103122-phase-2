@@ -15,7 +15,12 @@ const App = () => {
   useEffect(() => {
     fetch("http://localhost:4000/projects")
       .then((resp) => resp.json())
-      .then((projects) => setProjects(projects));
+      .then((projects) => { 
+        
+        console.table(projects);
+        
+        setProjects(projects)
+      });
   }, []);
   
   const onAddProject = (newProj) => {
