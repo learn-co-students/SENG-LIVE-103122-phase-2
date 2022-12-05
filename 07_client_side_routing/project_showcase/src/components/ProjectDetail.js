@@ -6,6 +6,9 @@ import { useEffect, useState } from "react";
 const ProjectDetail = () => {
   const [claps, setClaps] = useState(0);
   const [project, setProject] = useState(null);
+  
+  // Add additional state to keep track of loading
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const id = 1;
 
@@ -13,10 +16,23 @@ const ProjectDetail = () => {
     fetch(`http://localhost:4000/projects/${id}`)
       .then((r) => r.json())
       .then((project) => {
+        // console.log(project);
+
+        // Update Value of project State from Null to {Object}
         setProject(project);
+
+        // Once we have an object, updating isLoded from false to true
+        setIsLoaded(!isLoaded);
       });
   }, [id]);
 
+
+  // Issue => Attempting to Access Project Object Before It's Been
+  // Set to Another Value than Null
+
+  if (!isLoaded) return <h1>Loading...</h1>;
+  
+  // Issue => Attempting to Access Project Object Before It Has Been Set
   const { image, name, about, link, phase } = project;
 
   const handleClapClick = () => {

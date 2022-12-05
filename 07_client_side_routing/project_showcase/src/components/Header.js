@@ -14,7 +14,7 @@ const Header = ({ isDarkMode, onToggleDarkMode }) => {
     <header>
       <nav>
         <Link to="/">
-          <h1 className="branding">
+          <h1 className="branding" style={{ borderBottom: "none" }}>
             <span className="logo">{"//"}</span>
             Project Showcase
           </h1>
