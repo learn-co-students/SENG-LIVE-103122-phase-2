@@ -13,8 +13,8 @@ const Header = ({ isDarkMode, onToggleDarkMode }) => {
   return (
     <header>
       <nav>
-        <Link to="/">
-          <h1 className="branding" style={{ borderBottom: "none" }}>
+        <Link to="/" style={{ borderBottom: "none" }}>
+          <h1 className="branding">
             <span className="logo">{"//"}</span>
             Project Showcase
           </h1>
