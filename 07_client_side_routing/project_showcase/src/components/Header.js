@@ -1,4 +1,9 @@
-import React from "react";
+// Deliverable 3: Add navigation to the application using the `Link` and 
+// `NavLink` components
+
+  // - Convert any html anchor tags to `Link` or `NavLink`
+
+  // - Demonstrate the difference between `Link` and `NavLink`
 
 const Header = ({ isDarkMode, onToggleDarkMode }) => {
   const buttonTextContent = isDarkMode ? "Light Mode" : "Dark Mode";
