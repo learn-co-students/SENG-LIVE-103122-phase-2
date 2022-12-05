@@ -1,6 +1,3 @@
-// Deliverable 4: Create a nested route for the project show page inside of 
-// the `ProjectList` component
-
 import ProjectListItem from "./ProjectListItem";
 import { useState } from "react";
 
