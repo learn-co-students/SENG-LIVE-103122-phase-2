@@ -3,6 +3,8 @@
 
 import { useEffect, useState } from "react";
 
+import { useParams } from "react-router-dom";
+
 const ProjectDetail = () => {
   const [claps, setClaps] = useState(0);
   const [project, setProject] = useState(null);
@@ -10,7 +12,10 @@ const ProjectDetail = () => {
   // Add additional state to keep track of loading
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const id = 1;
+  // Static Value
+  // const id = 1;
+  
+  const { id } = useParams();
 
   useEffect(() => {
     fetch(`http://localhost:4000/projects/${id}`)
@@ -24,8 +29,7 @@ const ProjectDetail = () => {
         // Once we have an object, updating isLoded from false to true
         setIsLoaded(!isLoaded);
       });
-  }, [id]);
-
+  }, []);
 
   // Issue => Attempting to Access Project Object Before It's Been
   // Set to Another Value than Null
