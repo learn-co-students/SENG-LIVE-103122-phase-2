@@ -16,13 +16,16 @@
   // - Demonstrate the use of the `exact` prop passed to the `Route` 
   // component
 
+// React Router Imports
+import { Switch, Route } from "react-router-dom";
+
 import { useState, useEffect } from "react";
 
 import Header from "./components/Header";
 import ProjectForm from "./components/ProjectForm";
 import ProjectList from "./components/ProjectList";
 import ProjectEditForm from "./components/ProjectEditForm";
-import ProjectPage from "./components/ProjectPage"
+import ProjectDetail from "./components/ProjectDetail";
 import Home from "./components/Home";
 
 const App = () => {
@@ -64,14 +67,37 @@ const App = () => {
   return (
     <div className={isDarkMode ? "App" : "App light"}>
       <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
-      <Home />
-      <ProjectList
-        projects={projects}
-        onDeleteProject={onDeleteProject}
-      />
-      <ProjectEditForm onUpdateProject={onUpdateProject} />
-      <ProjectForm onAddProject={onAddProject} />
-      <ProjectPage />
+
+      <Switch>
+        
+        {/* Root Route (/) */}
+        <Route exact path="/">
+          <Home />
+        </Route>
+
+        {/* ProjectEditForm Route (/projects/:id/edit) */}
+        <Route path="/projects/:id/edit">
+          <ProjectEditForm onUpdateProject={onUpdateProject} />
+        </Route>
+        
+        {/* ProjectForm Route (/projects/add) */}
+        <Route path="/projects/new">
+          <ProjectForm onAddProject={onAddProject} />
+        </Route>
+        
+        {/* Project Detail Route (/projects/:id) */}
+        <Route path="/projects/:id">
+          <ProjectDetail />
+        </Route>
+        
+        {/* ProjectList Route (/projects) */}
+        <Route path="/projects">
+          <ProjectList
+            projects={projects}
+            onDeleteProject={onDeleteProject}
+          />
+        </Route>
+      </ Switch>
     </div>
   );
 };
