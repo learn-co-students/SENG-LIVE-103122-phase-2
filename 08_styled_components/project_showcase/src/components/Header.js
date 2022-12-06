@@ -2,6 +2,8 @@
 
   // How can we make `Button` render to the DOM as a `Link` component?
 
+import { Button } from "./shared";
+
 import { NavLink, Link } from "react-router-dom";
 
 const Header = ({ isDarkMode, onToggleDarkMode }) => {
@@ -16,16 +18,16 @@ const Header = ({ isDarkMode, onToggleDarkMode }) => {
         </Link>
       </h1>
       <nav>
-        <NavLink className="button" exact to="/projects">
+        <Button as={NavLink} exact to="/projects">
           All Projects
-        </NavLink>
-        <NavLink className="button" to="/projects/new">
+        </Button>
+        <Button as={NavLink} to="/projects/new">
           Add Project
-        </NavLink>
-        <NavLink className="button" to="/about">
+        </Button>
+        <Button as={NavLink} to="/about">
           About
-        </NavLink>
-        <button onClick={onToggleDarkMode}>{buttonTextContent}</button>
+        </Button>
+        <Button onClick={onToggleDarkMode}>{buttonTextContent}</Button>
       </nav>
     </header>
   );

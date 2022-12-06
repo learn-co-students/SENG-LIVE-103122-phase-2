@@ -55,7 +55,7 @@ section {
 
 /* buttons */
 button, .button {
-  appearance: auto;
+  /* appearance: auto;
   padding: 0.5rem 0.75rem;
   border: none;
   font: inherit;
@@ -65,7 +65,7 @@ button, .button {
   color: var(--primary);
   background-color: var(--background);
   border: 2px solid var(--dark-turquoise);
-  transition: background-color 0.2s;
+  transition: background-color 0.2s; */
 }
 
 button.active,
@@ -74,10 +74,10 @@ button:hover,
 .button.active,
 .button:focus,
 .button:hover {
-  outline: none;
+  /* outline: none;
   color: var(--background);
   background-color: var(--primary);
-  border: 2px solid var(--primary);
+  border: 2px solid var(--primary); */
 }
 
 button:disabled,
@@ -133,12 +133,12 @@ header {
 
 /* forms */
 .form {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   width: 500px;
   margin: 0 auto;
   border: 2px solid var(--dark-turquoise);
-  padding: 1.75rem;
+  padding: 1.75rem; */
 }
 
 .form h3 {
@@ -148,21 +148,21 @@ header {
 input,
 textarea,
 select {
-  margin-top: 0.25rem;
+  /* margin-top: 0.25rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
   border: none;
   font-size: 1.25rem;
   font-weight: bold;
   transition: all 0.3s;
-  border: 2px solid var(--color);
+  border: 2px solid var(--color); */
 }
 
 input:focus,
 textarea:focus,
 select:focus {
-  outline: none;
-  border: 2px solid var(--primary);
+  /* outline: none;
+  border: 2px solid var(--primary); */
 }
 
 .form button[type="submit"] {
