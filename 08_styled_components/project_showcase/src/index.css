@@ -1,6 +1,6 @@
 /* Global Styles */
 
-:root {
+/* :root {
   --turquoise: #00efe1;
   --mid-turquoise: #14d5c9;
   --dark-turquoise: #00333f;
@@ -18,21 +18,21 @@
   --color: var(--white);
   --background: var(--black);
   --primary: var(--turquoise);
-}
+} */
 
 /* layout */
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} */
 
-body {
+/* body {
   font-family: "Fira Code", monospace;
   font-size: 16px;
   color: var(--color);
   background-color: var(--background);
-}
+} */
 
 .App {
   color: var(--color);
