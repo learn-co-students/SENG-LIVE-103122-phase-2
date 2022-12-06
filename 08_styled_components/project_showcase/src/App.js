@@ -58,9 +58,9 @@ const App = () => {
       background-color: var(--background);
     }
   `
-  
+
   const lightTheme = {
-    color: "var(--color)",
+    color: "var(--black)",
     backgroundColor: "var(--white)",
     primary: "var(--dark-turquoise)"
   }
