@@ -10,7 +10,7 @@ const App = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
   const [isTimerShowing, setIsTimerShowing] = useState(false);
 
-// Deliverable 2: Implement useEffect in App component 
+// Deliverable 1: Implement useEffect in App component 
 // to load projects
 
   // Import the `useEffect` hook from the React library
@@ -35,7 +35,7 @@ const App = () => {
   // Update `projects` state upon successful response 
   // from the server
 
-// Deliverable 3: Demonstrate the order of operations 
+// Deliverable 2: Demonstrate the order of operations 
 // between rendering a component and running the side 
 // effect
 
